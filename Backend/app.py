@@ -9,6 +9,15 @@ DATA_PATH = os.path.join(DATA_DIR, 'movies.csv')
 recommender = MovieRecommender(DATA_PATH)
 
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        'message': 'Movie Recommender API',
+        'usage': 'Use /recommend/<movie_name> to get recommendations',
+        'example': '/recommend/Inception'
+    })
+
+
 @app.route('/recommend/<item>', methods=['GET'])
 def recommend(item):
     recommendations = recommender.get_recommendations(item)
@@ -23,5 +32,7 @@ def add_cors_headers(response):
     return response
 
 
+# ✅ IMPORTANT FIX FOR RENDER
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
