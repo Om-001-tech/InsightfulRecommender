@@ -3,7 +3,7 @@ const button = document.getElementById('recommend-btn');
 const status = document.getElementById('status');
 const resultsGrid = document.getElementById('results-grid');
 
-const API_BASE = 'http://127.0.0.1:5000';
+const API_BASE = '';
 
 const createCard = (movie) => {
   const card = document.createElement('article');
@@ -46,12 +46,15 @@ const renderResults = (movies) => {
 
 const fetchRecommendations = async (query) => {
   const url = `${API_BASE}/recommend/${encodeURIComponent(query)}`;
+
   try {
     showStatus('Fetching recommendations…');
     const response = await fetch(url);
+
     if (!response.ok) {
       throw new Error('Unable to reach the recommendation engine.');
     }
+
     const json = await response.json();
     renderResults(json);
   } catch (error) {
@@ -62,10 +65,12 @@ const fetchRecommendations = async (query) => {
 
 button.addEventListener('click', () => {
   const query = input.value.trim();
+
   if (!query) {
     showStatus('Please enter a title to get recommendations.', true);
     return;
   }
+
   fetchRecommendations(query);
 });
 
