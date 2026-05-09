@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 from models.recommender import MovieRecommender
 
 app = Flask(__name__)
@@ -11,11 +11,7 @@ recommender = MovieRecommender(DATA_PATH)
 
 @app.route('/', methods=['GET'])
 def home():
-    return jsonify({
-        'message': 'Movie Recommender API',
-        'usage': 'Use /recommend/<movie_name> to get recommendations',
-        'example': '/recommend/Inception'
-    })
+    return render_template("index.html")
 
 
 @app.route('/recommend/<item>', methods=['GET'])
@@ -32,7 +28,6 @@ def add_cors_headers(response):
     return response
 
 
-# ✅ IMPORTANT FIX FOR RENDER
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
