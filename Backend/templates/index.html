@@ -3,40 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>✨ Insightful Recommender ✨</title>
+  <title>Insightful Recommender | Movie Intelligence Platform</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
-  <div class="hero">
-    <div class="glass-panel">
-      <div class="header-copy">
-        <p class="eyebrow">AI-powered recommendations</p>
-        <h1>✨ Insightful Recommender ✨</h1>
-        <p class="intro">Type a movie title and discover curated recommendations with similarity scores, genres, and ratings.</p>
-      </div>
+  <div class="page-bg"></div>
 
-      <div class="search-bar">
-        <input id="item-input" type="text" placeholder="Enter a movie title like Inception" />
-        <button id="recommend-btn">Get Recommendations</button>
-      </div>
-
-      <div id="status" class="status">Try "Inception", "The Matrix", or "La La Land".</div>
+  <nav class="navbar">
+    <div class="logo">
+      <span class="logo-icon">🎬</span>
+      <span>Insightful Recommender</span>
     </div>
-  </div>
+    <div class="nav-pill">ML Powered Project</div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="badge">Content-Based Movie Recommendation System</div>
+
+      <h1>
+        Discover Movies Using
+        <span>Machine Learning Intelligence</span>
+      </h1>
+
+      <p class="hero-text">
+        Enter a movie title and get intelligent recommendations based on genres,
+        ratings, metadata similarity and content matching.
+      </p>
+
+      <div class="search-card">
+        <input id="item-input" type="text" placeholder="Try: Inception, Interstellar, The Matrix" />
+        <button id="recommend-btn">
+          Generate Recommendations
+          <span>➜</span>
+        </button>
+      </div>
+
+      <div id="status" class="status">
+        Enter a movie name to start recommendation analysis.
+      </div>
+
+      <div class="quick-actions">
+        <button class="quick-btn" data-title="Inception">Inception</button>
+        <button class="quick-btn" data-title="The Matrix">The Matrix</button>
+        <button class="quick-btn" data-title="Interstellar">Interstellar</button>
+        <button class="quick-btn" data-title="La La Land">La La Land</button>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="floating-card main-card">
+        <p class="label">Recommendation Engine</p>
+        <h3>Smart Similarity Analysis</h3>
+        <p>
+          Uses movie features to identify the most relevant and meaningful movie suggestions.
+        </p>
+      </div>
+
+      <div class="mini-grid">
+        <div class="stat-card">
+          <h2 id="total-results">0</h2>
+          <p>Results</p>
+        </div>
+        <div class="stat-card">
+          <h2 id="top-rating">--</h2>
+          <p>Top Rating</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-card">
+      <span>01</span>
+      <h3>Input Movie</h3>
+      <p>User enters a movie title through the frontend interface.</p>
+    </div>
+
+    <div class="info-card">
+      <span>02</span>
+      <h3>ML Processing</h3>
+      <p>Backend compares movie content, genre and similarity features.</p>
+    </div>
+
+    <div class="info-card">
+      <span>03</span>
+      <h3>Smart Output</h3>
+      <p>Recommended movies are shown with score, genres and ratings.</p>
+    </div>
+  </section>
 
   <main class="results-section">
-    <div class="results-header">
+    <div class="section-header">
+      <p class="eyebrow">Recommendation Output</p>
       <h2>Recommended Picks</h2>
-      <p>Beautiful, judge-friendly cards that explain your recommendations.</p>
+      <p>
+        Results will appear below in judge-friendly cards with clear explanation.
+      </p>
     </div>
+
     <div id="results-grid" class="results-grid"></div>
   </main>
+
+  <section class="tech-section">
+    <div class="section-header">
+      <p class="eyebrow">Project Technology Stack</p>
+      <h2>Built With Modern Full Stack Tools</h2>
+    </div>
+
+    <div class="tech-grid">
+      <div>Python</div>
+      <div>Flask</div>
+      <div>Machine Learning</div>
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <div>GitHub</div>
+      <div>Render</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Insightful Recommender System | Full Stack ML Web Application</p>
+  </footer>
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
